@@ -32,7 +32,7 @@ const products = () => {
         </div>
       </div>
 
-      <div className="flex justify-between m-3 flex-wrap ">
+      <div className="grid  grid-cols-4 m-3 gap-4">
         {productz.length &&
           productz.map((prod: any) => (
             <ProductCard
