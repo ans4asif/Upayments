@@ -1,13 +1,124 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('assets/fonts/Poppins-Bold.ttf') format('ttf');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('assets/fonts/Poppins-Medium.ttf') format('ttf');  
+             font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Inter';
+        src: url('assets/fonts/Poppins-Regular.ttf') format('ttf');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Inter';
+        src: url('assets/fonts/Poppins-SemiBold.ttf') format('ttf');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    /************** custom icons ***************/
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*************** react select styles *************/
+.react-select__control {
+    @apply border border-white dark:border-black rounded-xl bg-white dark:bg-primary w-full outline-none !important;
+}
+
+.react-select__value-container {
+    @apply h-12 sm:h-14 text-green-50 dark:text-white  px-3 sm:px-5 py-2 font-sans flex-nowrap !important;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.react-select__indicator {
+    @apply px-5 h-12 sm:h-14 items-center !important;
+}
+
+.react-select-container.height-auto .react-select__value-container,
+.react-select-container.height-auto .react-select__indicator {
+    @apply h-auto !important;
+}
+
+.react-select__indicator-separator {
+    @apply hidden !important;
+}
+
+.react-select__placeholder {
+    @apply text-emerald-50 !important;
+}
+
+.react-select__input input {
+    @apply text-white !important;
+}
+
+.react-select__menu {
+    @apply bg-rose-white dark:bg-primary rounded-xl shadow-lg !important;
+}
+
+.react-select__option {
+    @apply text-scampi dark:text-white bg-transparent cursor-pointer relative pr-9 !important;
+}
+
+.react-select__option:after {
+    @apply text-success;
+    content: '\e904';
+    font-family: 'icomoon';
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.react-select__option.react-select__option--is-focused {
+    @apply bg-gradient-to-br from-baby-blue to-summer-sky text-primary !important;
+}
+
+.react-select__option.react-select__option--is-focused:after {
+    @apply text-primary;
+}
+
+.react-select__multi-value {
+    flex-shrink: 0;
+}
+
+.react-select__multi-value__label {
+    text-overflow: clip;
+}
+
+.react-select__option.react-select__option--is-selected:after {
+    display: block;
+}
+
+.react-select__clear-indicator {
+    cursor: pointer;
+}
+
+.react-select__multi-value__remove {
+    @apply text-primary;
+}
+
+.react-select__single-value {
+    @apply text-paua dark:text-white !important;
 }

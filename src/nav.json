@@ -1,0 +1,18 @@
+[
+    {
+      "name": "Products",
+      "file": "products",
+      "navigations": true,
+      "live": true,
+      "buttons": [],
+      "icon": "dashboard"
+    },
+    {
+      "name": "CreateProduct",
+      "file": "create-product",
+      "navigations": true,
+      "live": true,
+      "buttons": [],
+      "icon": "admin_panel_settings"
+    }
+]
