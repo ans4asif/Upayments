@@ -9,6 +9,7 @@ module.exports = {
       sans: ['Poppins', ...defaultTheme.fontFamily.sans],
     },
     screens: {
+      xs: '320px',
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -36,6 +37,9 @@ module.exports = {
         warning: '#ffc122',
         success: '#47d664',
         error: '#c40302',
+        gray1: '#353840',
+        golden: '#fbb72c',
+        danger: '#FF5630',
         //btn
         'baby-blue': '#40ddff', //btn linear gradient start point
         'summer-sky': '#13b1e6', //btn linear gradient end point
@@ -47,6 +51,8 @@ module.exports = {
         paua: '#262250',
         'paua-light': '#2B285B',
         'paua-dark': '#1A193F',
+
+        logo: '#5f5fdf',
       },
     },
   },

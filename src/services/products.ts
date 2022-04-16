@@ -5,6 +5,14 @@ const STATUS = {
   SUCCESS: 'success',
   ERROR: 'error',
 };
+interface Product {
+  name: string;
+  price: number;
+  description: string;
+  avatar: string;
+  developerEmail: string;
+  category: string;
+}
 const productService = {
   _url: 'https://62286b649fd6174ca82321f1.mockapi.io/case-study',
 
@@ -26,6 +34,25 @@ const productService = {
       products,
       products_loading: status === STATUS.LOADING,
       products_error: status === STATUS.ERROR ? status : '',
+    };
+  },
+  GetProductDetails(id: string | undefined) {
+    const [product, setProduct] = useState<any>({});
+    const [status, setStatus] = useState(STATUS.LOADING);
+    useEffect(() => {
+      this.getProductDetails(id)
+        .then((data) => {
+          setProduct(data);
+          setStatus(STATUS.SUCCESS);
+        })
+        .catch((error) => {
+          setStatus(STATUS.ERROR);
+        });
+    }, []);
+    return {
+      product,
+      product_loading: status === STATUS.LOADING,
+      product_error: status === STATUS.ERROR ? status : '',
     };
   },
   GetCategories() {
@@ -58,6 +85,30 @@ const productService = {
   },
   async getCategories() {
     let res = await fetch(`${productService._url}/categories/`);
+    if (res.status >= 200 && res.status < 300) {
+      res = await res.json();
+      return res;
+    }
+    const { message } = await res.json();
+    throw Error(message ?? 'Something went wrong');
+  },
+  async createProduct(product: Product) {
+    let res = await fetch(`${productService._url}/products/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(product),
+    });
+    if (res.status >= 200 && res.status < 300) {
+      res = await res.json();
+      return res;
+    }
+    const { message } = await res.json();
+    throw Error(message ?? 'Something went wrong');
+  },
+  async getProductDetails(id: string | undefined) {
+    let res = await fetch(`${productService._url}/products/${id}`);
     if (res.status >= 200 && res.status < 300) {
       res = await res.json();
       return res;

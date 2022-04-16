@@ -6,7 +6,6 @@ interface Props {
   children: React.ReactNode;
 }
 const PageTemplate: React.FC<Props> = ({ children }) => {
-  console.log('page template');
   return (
     <div className="container mx-auto my-2">
       <Navbar />

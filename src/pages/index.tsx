@@ -29,20 +29,29 @@ export default function Index() {
     Promise.all(promise).then(setSelectedView);
   }
   async function selectView(file: string | undefined) {
-    console.log({ file });
-    const filtered = metaViewData
-      //   .map(({ subNav = [], ...item }) => [item, ...subNav])
-      //   .flat(Infinity)
-      .filter((elem) => elem.file === file);
+    const filtered = metaViewData.filter((elem) => elem.file === file);
     loadView([filtered[0]]);
   }
-  console.log({ selectedView });
   useEffect(() => {
     let fileToLoad = view;
-
-    Navigate(`/${fileToLoad}`);
+    if (child) {
+      if (view === 'products') {
+        fileToLoad = 'product-details';
+      } else {
+        fileToLoad = child;
+      }
+    }
+    if (child) {
+      if (view === 'products') {
+        Navigate(`/products/${child}`);
+      } else {
+        Navigate(`/${view}/${child}`);
+      }
+    } else {
+      Navigate(`/${fileToLoad}`);
+    }
     selectView(fileToLoad);
-  }, [view]);
+  }, [view, child]);
 
   return (
     <>

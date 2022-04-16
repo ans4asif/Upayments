@@ -4,15 +4,20 @@
       "file": "products",
       "navigations": true,
       "live": true,
-      "buttons": [],
-      "icon": "dashboard"
+      "buttons": []
     },
     {
       "name": "CreateProduct",
       "file": "create-product",
       "navigations": true,
       "live": true,
-      "buttons": [],
-      "icon": "admin_panel_settings"
+      "buttons": []
+    },
+    {
+      "name": "ProductDetails",
+      "file": "product-details",
+      "navigations": true,
+      "buttons": []
+      
     }
 ]

@@ -39,6 +39,16 @@
 
 }
 
+    /*************** loading icon animation *************/
+    .loading-icon svg {
+        animation: loadingCircle 1s linear infinite;
+    }
+
+    @keyframes loadingCircle {
+        to {
+            transform: rotate(1turn);
+        }
+    }
 /*************** react select styles *************/
 .react-select__control {
     @apply border border-white dark:border-black rounded-xl bg-white dark:bg-primary w-full outline-none !important;
